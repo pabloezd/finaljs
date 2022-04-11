@@ -1,0 +1,8 @@
+
+[
+    {"nombre": "Taladro Inalámbrico", "precio": 7000, "id": "PALO0012"},
+    {"nombre": "Amoladora Inalámbrica", "precio": 2345, "id": "PALO0045"},
+    {"nombre": "Sierra Circular", "precio": 6000, "id": "PALO0056"},
+    {"nombre": "Roto Martillo", "precio": 6500, "id": "PALO0088"},
+    {"nombre": "Lijadora Inalámbrica", "precio": 3200, "id": "PALO0099"}
+]
