@@ -1,4 +1,6 @@
 
+//CODIGO PARA CARRITO en "Productos"
+
 let productos = [];
 let total = 0;
 
