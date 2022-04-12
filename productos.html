@@ -1,52 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--Agrego el SEO -->
-    <meta name="description" content="Ferretería PALO, cada vez más cerca de tu barrio. Realizá todos tus proyectos con las mejores herramientas de industria nacional">
-    <meta name="keywords" content="Ferretería, taladro, amoladora, sierra, manualidades, herramientas, bricolage, DIY">
-    <!-- fav icon -->
-    <link rel="shortcut icon" href="./Imagenes/favicon2.png">
-    <!--Agrego el framework Bootstrap-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <!--Hoja de estilos-->
-    <link rel="stylesheet" href="css/style.css">    
-    <title>Ferretería PALO</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--Agrego el SEO -->
+  <meta name="description" content="Ferretería PALO, cada vez más cerca de tu barrio. Realizá todos tus proyectos con las mejores herramientas de industria nacional">
+  <meta name="keywords" content="Ferretería, taladro, amoladora, sierra, manualidades, herramientas, bricolage, DIY">
+  <!-- fav icon -->
+  <link rel="shortcut icon" href="./Imagenes/favicon2.png">
+  <!--Agrego el framework Bootstrap-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <!--Hoja de estilos-->
+  <link rel="stylesheet" href="css/style.css">    
+  <title>Ferretería PALO</title>
 </head>
 
 <body>
-    <header> 
-        <h1 id="nombreFerreteria" class="display-1">FERRETERIA PALO</h1>
-         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-           <div class="container-fluid">
-             <a class="navbar-brand" href="./index.html">
-               <img src="./Imagenes/favicon2.png" alt="logo">
-             </a>
-             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-               <span class="navbar-toggler-icon"></span>
-             </button>
-             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-               <div class="navbar-nav">
+  <header> 
+    <h1 id="nombreFerreteria" class="display-1">FERRETERIA PALO</h1>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="./index.html">
+          <img src="./Imagenes/favicon2.png" alt="logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
                 <a class="nav-link" href="./index.html">Inicio</a>
                 <a class="nav-link active" aria-current="page" href="./productos.html">Productos</a>
                 <a class="nav-link" href="./repuestos.html">Repuestos</a>
-               </div>
-             </div>
-           </div>
-           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button id="btncarrito" class="btn btn-warning me-md-2" type="button">Carrito</button>
-            </div>
-         </nav>
-       </header>
+              </div>
+        </div>
+      </div>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button id="btncarrito" class="btn btn-warning me-md-2" type="button" onclick="pagar()">Carrito</button>
+      </div>
+    </nav>
+  </header>
    
-       <img src="./Imagenes/imagen1.png" class="img-fluid" alt="Responsive image">
+  <img src="./Imagenes/imagen1.png" class="img-fluid" alt="Responsive image">
     
-        <main>  
+  <main>  
 
-            <h2 id="subtitulo" class="display-5">PRODUCTOS</h2>
-            <!--COLOCAR TODOS LOS PRODUCTOS AQUI-->
+    <h2 id="subtitulo" class="display-5">PRODUCTOS</h2>
+
+    <!--COLOCAR TODOS LOS PRODUCTOS AQUI-->
             
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 <div class="col">
@@ -59,7 +60,7 @@
                     <div class="card-footer">
                       <small class="text-muted">Voltaje 220-240V</small>
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <button id="btncompra" class="btn btn-warning me-md-2" type="button">Agregar al carrito</button>
+                            <button id="btncompra" class="btn btn-warning me-md-2" type="button" onclick="agregar('Amoladora', 500)">Agregar al carrito</button>
                         </div>
                     </div>
                   </div>
@@ -74,7 +75,7 @@
                     <div class="card-footer">
                       <small class="text-muted">Voltaje 220-240V</small>
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <button id="btncompra" class="btn btn-warning me-md-2" type="button">Agregar al carrito</button>
+                            <button id="btncompra" class="btn btn-warning me-md-2" type="button" onclick="agregar('Sierra', 600)">Agregar al carrito</button>
                         </div>
                     </div>
                   </div>
@@ -89,33 +90,26 @@
                     <div class="card-footer">
                       <small class="text-muted">Voltaje 220-240V</small>
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <button id="btncompra" class="btn btn-warning me-md-2" type="button">Agregar al carrito</button>
+                            <button id="btncompra" class="btn btn-warning me-md-2" type="button" onclick="agregar('Taladro', 450)">Agregar al carrito</button>
                         </div>
                     </div>
                   </div>
                 </div>
               </div>
-
-
-              <h3>MARCAS DISPONIBLES</h3>  
-              <ul>
-                <li class="marca">Black & Decker</li>
-                <li class="marca">DEWALT</li>
-                <li class="marca">Stanley</li>
-              </ul>   
-
-              <h3 id="spareparts">REPUESTOS</h3>  
-
-        </main>
+               
+  </main>
   
-        <br>
+  <br>
+  <br>
 
+  <blockquote class="blockquote text-center">
+   <p class="mb-0"></p>
+    <footer class="blockquote-footer">Todos los derechos e izquierdos reservados. @PALO <cite title="Source Title"></cite></footer>
+  </blockquote>
 
-
+  <script src="https:///cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script src="./JS/script2.js"></script>
   
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-      <script src="./JS/script.js"></script>
-  
-
 </body>
 </html>

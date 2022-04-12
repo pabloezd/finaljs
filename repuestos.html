@@ -35,9 +35,6 @@
             </div>
           </div>
         </div>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button id="btncarrito" class="btn btn-warning me-md-2" type="button">Carrito</button>
-            </div>
       </nav>
     </header>
 
@@ -51,24 +48,41 @@
         Hola! Gracias por visitar Ferretería PALO. Encontrá las mejores herramientas al alcance de tu bolsillo. Empezá ese proyecto y hazlo tú mismo, con la mejor calidad de productos de industria nacional!
       </p>
 
-      <h3>MARCAS DISPONIBLES</h3>  
-      <ul>
-        <li class="marca">Black & Decker</li>
-        <li class="marca">DEWALT</li>
-        <li class="marca">Stanley</li>
-      </ul>  
+      <form>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Deje su Email para subscribirse a nuestro Newsletter</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <div id="emailHelp" class="form-text">Al terminar, por favor presione la tecla "Enter"</div>
+        </div>
+      </form>
 
-      <h3 id="spareparts">REPUESTOS</h3>  
+      <form>
+        <div>
+          <label>Contanos, ¿Qué proyecto vas a hacer hoy?</label><br>
+          <input id="d6"><br><div id="emailHelp" class="form-text">Al terminar, por favor presione la tecla "Enter"</div><br>
+          <label>¿Qué edad tenés?</label><br>
+          <input id="d7"><div id="emailHelp" class="form-text"></div>
+          <p id="edad"></p>
+        </div>
+      </form>
+      <br>
+      <p id="proyecto"></p>
 
-    </main>
-
-    <h2>Otras Herramientas PRO</h2>
+      <h2>Otras Herramientas PRO</h2>
     <hr/>
 
- 
+    <ul id="listado">
+    </ul>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="./JS/script.js"></script>
+
+
+  <blockquote class="blockquote text-center">
+    <p class="mb-0"></p>
+    <footer class="blockquote-footer">Todos los derechos e izquierdos reservados. @PALO <cite title="Source Title"></cite></footer>
+  </blockquote>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script src="./JS/script3.js"></script>
 
 </body>
 </html>
