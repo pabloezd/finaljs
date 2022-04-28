@@ -31,12 +31,14 @@
               <div class="navbar-nav">
                 <a class="nav-link" href="./index.html">Inicio</a>
                 <a class="nav-link active" aria-current="page" href="./productos.html">Productos</a>
-                <a class="nav-link" href="./repuestos.html">Repuestos</a>
+                <a class="nav-link" href="./contacto.html">Contacto</a>
               </div>
         </div>
       </div>
       <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <button id="btncarrito" class="btn btn-warning me-md-2" type="button" onclick="pagar()">Carrito</button>
+        <a href="./productos.html#over">
+          <button id="btncarrito" class="btn btn-warning me-md-2" type="button">Carrito</button>
+        </a>
       </div>
     </nav>
   </header>
@@ -48,55 +50,73 @@
     <h2 id="subtitulo" class="display-5">PRODUCTOS</h2>
 
     <!--COLOCAR TODOS LOS PRODUCTOS AQUI-->
-            
-            <div class="row row-cols-1 row-cols-md-3 g-4">
-                <div class="col">
-                  <div class="card h-100">
-                    <img src="./Imagenes/Productos/Amoladora1.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Amoladora ARS$500</h5>
-                      <p class="card-text">Amoladora 220W con disco de 115mm</p>
-                    </div>
-                    <div class="card-footer">
-                      <small class="text-muted">Voltaje 220-240V</small>
-                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <button id="btncompra" class="btn btn-warning me-md-2" type="button" onclick="agregar('Amoladora', 500)">Agregar al carrito</button>
-                        </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card h-100">
-                    <img src="./Imagenes/Productos/Sierra1.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Sierra ARS$600</h5>
-                      <p class="card-text">Sierra 350W con hojas de corte</p>
-                    </div>
-                    <div class="card-footer">
-                      <small class="text-muted">Voltaje 220-240V</small>
-                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <button id="btncompra" class="btn btn-warning me-md-2" type="button" onclick="agregar('Sierra', 600)">Agregar al carrito</button>
-                        </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card h-100">
-                    <img src="./Imagenes/Productos/Taladro1.png"  class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Taladro ARS$450</h5>
-                      <p class="card-text">Taladro 550W con mecha 10mm</p>
-                    </div>
-                    <div class="card-footer">
-                      <small class="text-muted">Voltaje 220-240V</small>
-                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <button id="btncompra" class="btn btn-warning me-md-2" type="button" onclick="agregar('Taladro', 450)">Agregar al carrito</button>
-                        </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-               
+
+    <template id="template-card">
+      <div class="col-12 mb-2 col-md-4">
+        <div class="card">
+          <img src="" alt="" class="card-img-top">
+          <div class="card-body">
+            <h5>Nombre</h5>
+            <p>Precio</p>
+            <button class="btn btn-dark">Comprar</button>
+          </div>
+        </div>
+      </div>
+    </template>
+         
+    <div class="container">
+      <div class="row" id="cards"></div>
+      <h4 class="display-5">CARRITO</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">SKU</th>
+            <th scope="col">PRODUCTO</th>
+            <th scope="col">CANTIDAD</th>
+            <th scope="col">AGREGAR/RESTAR</th>
+            <th scope="col">TOTAL</th>
+          </tr>
+        </thead>
+        <tbody id="items"></tbody>
+        <tfoot>
+          <tr id="footer">
+            <th scope="row" colspan="5">Su carrito está vacío</th>
+          </tr>
+        </tfoot>
+      </table>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button id="fin" class="btn btn-warning me-md-2" type="button">FINALIZAR COMPRA</button>
+      </div>
+    </div>
+
+    <template id="template-footer">
+        <th scope="row" colspan="2">TOTAL</th>
+        <td>10</td>
+        <td>
+            <button class="btn btn-secondary btn-sm" id="vaciar-carrito">
+                LIMPIAR CARRITO 
+            </button>
+        </td>
+        <td class="font-weight-bold">$ <span>5000</span></td>
+    </template>
+    
+    <template id="template-carrito">
+      <tr>
+        <th scope="row">id</th>
+        <td>Amoladora</td>
+        <td>1</td>
+        <td>
+            <button class="btn btn-success btn-sm">
+                +
+            </button>
+            <button class="btn btn-secondary btn-sm">
+                -
+            </button>
+        </td>
+        <td>$ <span>500</span></td>
+      </tr>
+    </template>
+
   </main>
   
   <br>
@@ -104,7 +124,7 @@
 
   <blockquote class="blockquote text-center">
    <p class="mb-0"></p>
-    <footer class="blockquote-footer">Todos los derechos e izquierdos reservados. @PALO <cite title="Source Title"></cite></footer>
+    <footer id="over" class="blockquote-footer">Todos los derechos e izquierdos reservados. @PALO <cite title="Source Title"></cite></footer>
   </blockquote>
 
   <script src="https:///cdn.jsdelivr.net/npm/sweetalert2@11"></script>

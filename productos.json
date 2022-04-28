@@ -1,0 +1,20 @@
+[
+    {
+      "precio": 2900,
+      "id": 1,
+      "title": "Amoladora 500W",
+      "thumbnailUrl": "https://adamimages.sbdinc.com/GEM/Dewalt/1000x1000_72r/DW831_10.jpg"
+    },
+    {
+      "precio": 2700,
+      "id": 2,
+      "title": "Sierra 650W",
+      "thumbnailUrl": "https://adamimages.sbdinc.com/GEM/Dewalt/1000x1000_72r/DW300_1L.jpg"
+    },
+    {
+      "precio": 3000,
+      "id": 3,
+      "title": "Taladro 710W",
+      "thumbnailUrl": "https://adamimages.sbdinc.com/GEM/Dewalt/1000x1000_72r/DW505_1.jpg"
+    }
+  ]
