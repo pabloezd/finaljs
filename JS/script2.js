@@ -1,22 +1,4 @@
-
 //CODIGO PARA CARRITO en "Productos"
-
-// let productos = [];
-// let total = 0;
-
-
-// function agregar(producto, precio) {
-//     console.log(producto, precio);
-//     productos.push(producto);
-//     total = total + precio;
-//     document.getElementById("btncarrito").innerHTML = `Total $${total}`
-// }
-
-// function pagar() {
-//     Swal.fire(productos.join(" \n"));
-// }
-
-
 const cards = document.getElementById('cards')
 const items = document.getElementById('items')
 const footer = document.getElementById('footer')
@@ -26,27 +8,25 @@ const templateCarrito = document.getElementById('template-carrito').content
 const fragment = document.createDocumentFragment()
 let carrito = {}
 
-// Eventos
-// El evento DOMContentLoaded es disparado cuando el documento HTML ha sido completamente cargado y parseado
+//Local Storage
 document.addEventListener('DOMContentLoaded', e => { fetchData() 
     if (localStorage.getItem('carrito')) {
         carrito = JSON.parse(localStorage.getItem('carrito'))
-        pintarCarrito()
+        mostrarCarrito()
     }
 });
 cards.addEventListener('click', e => { addCarrito(e) });
 items.addEventListener('click', e => { btnAumentarDisminuir(e) })
 
-// Traer productos
+// FETCH
 const fetchData = async () => {
     const res = await fetch('productos.json');
     const data = await res.json()
-    // console.log(data)
-    pintarCards(data)
+    mostrarCards(data)
 }
 
-// Pintar productos
-const pintarCards = data => {
+// Mostrar productos
+const mostrarCards = data => {
     data.forEach(item => {
         templateCard.querySelector('h5').textContent = item.title
         templateCard.querySelector('p').textContent = item.precio 
@@ -61,32 +41,28 @@ const pintarCards = data => {
 // Agregar al carrito
 const addCarrito = e => {
     if (e.target.classList.contains('btn-dark')) {
-        // console.log(e.target.dataset.id)
-        // console.log(e.target.parentElement)
         setCarrito(e.target.parentElement)
     }
     e.stopPropagation()
 }
 
 const setCarrito = item => {
-    // console.log(item)
     const producto = {
         title: item.querySelector('h5').textContent,
         precio: item.querySelector('p').textContent,
         id: item.querySelector('button').dataset.id,
         cantidad: 1
     }
-    // console.log(producto)
     if (carrito.hasOwnProperty(producto.id)) {
         producto.cantidad = carrito[producto.id].cantidad + 1
     }
 
     carrito[producto.id] = { ...producto }
     
-    pintarCarrito()
+    mostrarCarrito()
 }
 
-const pintarCarrito = () => {
+const mostrarCarrito = () => {
     items.innerHTML = ''
 
     Object.values(carrito).forEach(producto => {
@@ -95,7 +71,6 @@ const pintarCarrito = () => {
         templateCarrito.querySelectorAll('td')[1].textContent = producto.cantidad
         templateCarrito.querySelector('span').textContent = producto.precio * producto.cantidad
         
-        //botones
         templateCarrito.querySelector('.btn-success').dataset.id = producto.id
         templateCarrito.querySelector('.btn-secondary').dataset.id = producto.id
 
@@ -104,12 +79,12 @@ const pintarCarrito = () => {
     })
     items.appendChild(fragment)
 
-    pintarFooter()
+    mostrarFooter()
 
     localStorage.setItem('carrito', JSON.stringify(carrito))
 }
 
-const pintarFooter = () => {
+const mostrarFooter = () => {
     footer.innerHTML = ''
     
     if (Object.keys(carrito).length === 0) {
@@ -119,10 +94,10 @@ const pintarFooter = () => {
         return
     }
     
-    // sumar cantidad y sumar totales
+    // Cantidad y Totales
     const nCantidad = Object.values(carrito).reduce((acc, { cantidad }) => acc + cantidad, 0)
     const nPrecio = Object.values(carrito).reduce((acc, {cantidad, precio}) => acc + cantidad * precio ,0)
-    // console.log(nPrecio)
+    
 
     templateFooter.querySelectorAll('td')[0].textContent = nCantidad
     templateFooter.querySelector('span').textContent = nPrecio
@@ -135,18 +110,17 @@ const pintarFooter = () => {
     const boton = document.querySelector('#vaciar-carrito')
     boton.addEventListener('click', () => {
         carrito = {}
-        pintarCarrito()
+        mostrarCarrito()
     })
 
 }
 
 const btnAumentarDisminuir = e => {
-    // console.log(e.target.classList.contains('btn-success'))
     if (e.target.classList.contains('btn-success')) {
         const producto = carrito[e.target.dataset.id]
         producto.cantidad++
         carrito[e.target.dataset.id] = { ...producto }
-        pintarCarrito()
+        mostrarCarrito()
     }
 
     if (e.target.classList.contains('btn-secondary')) {
@@ -157,7 +131,28 @@ const btnAumentarDisminuir = e => {
         } else {
             carrito[e.target.dataset.id] = {...producto}
         }
-        pintarCarrito()
+        mostrarCarrito()
     }
     e.stopPropagation()
 }
+
+//EVENTOS con TOASTIFY
+let boton = 
+document.getElementById("fin");
+boton.addEventListener("click", respuestaClick);
+function respuestaClick(){
+    Toastify({
+        text: "Ha realizado su compra con éxito",
+        duration: 7000,
+        destination: "./index.html",
+        newWindow: false,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "green",
+        },
+      }).showToast();
+}
+

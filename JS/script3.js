@@ -69,7 +69,13 @@ edadRequerida.addEventListener("keyup", function(event) {
 //Operador AND
 let subs = document.getElementsByClassName("form-control")[0];
 subs.addEventListener("keyup", function(event) {
-    event.key === "Enter" && alert("Se ha suscrito a nuestro Newsletter con éxito ")
+    event.key === "Enter" && Swal.fire
+    ({
+        title: 'Se ha suscrito a nuestro Newsletter exitosamente! ',
+        icon: 'success',
+        confirmButtonText: 'Seguir viendo otros productos...',
+        confirmButtonColor: '#11120f',
+    }) 
 });
 
 //Fetch
