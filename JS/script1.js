@@ -4,7 +4,7 @@ document.getElementById("15");
 boton.addEventListener("click", respuestaClick);
 function respuestaClick(){
     Swal.fire({
-        title: 'Ha obtenido un 15% de descuento en su compra ',
+        title: 'Ha obtenido un 10% de descuento en su compra ',
         icon: 'success',
         confirmButtonText: 'Seguir comprando...',
         confirmButtonColor: '#11120f',
